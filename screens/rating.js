@@ -6,6 +6,8 @@ ratingCompleted(rating) {
   console.log("Rating is: " + rating)
 }
 
+// What does all these jsx code floating in space?
+
 <AirbnbRating />
 
 <AirbnbRating
