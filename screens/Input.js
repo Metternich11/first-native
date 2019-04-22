@@ -25,7 +25,6 @@ class PlaceInput extends Component {
     }
     this.props.addCigaretteHandler(this.state.message, this.state.rated);
   };
-
   render() {
     return (
       <ImageBackground style={styles.inputContainer} source={require('./images/inputSmoke.jpg')}>
@@ -69,15 +68,15 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     height: "100%",
-    backgroundColor: "rgba(240, 169, 121,0.4)",
+    backgroundColor: "rgba(225, 232, 240,0.4)",
     alignItems: "center",
     justifyContent: "center"
   },
   placeInput: {
     width: "70%",
     height: 200,
-    borderColor: "rgba(240, 169, 121,0.8)",
-    backgroundColor: "rgba(240, 169, 121,0.4)",
+    borderColor: "rgba(144, 104, 190,0.8)",
+    backgroundColor: "rgba(225, 232, 240,0.4)",
     borderWidth: 2,
     borderRadius: 20,
     margin: 5,

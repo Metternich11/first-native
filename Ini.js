@@ -7,20 +7,20 @@
 const genRandomDate = () => {
 
   const cigs = [];
-  console.log('hi');
   function randomDate(start, end, startHour, endHour) {
     var date = new Date(+start + Math.random() * (end - start));
     var hour = startHour + Math.random() * (endHour - startHour);
     date.setHours(hour);
+    date = date.toISOString();
     return date;
   }
   
-  const start = new Date(2019, 1, 1);
+  const start = new Date(2019, 0, 20);
   const end = new Date(2019, 3, 20);
   const startHour = 8;
   const endHour = 23;
   
-  for (let i = 1; i < 190; i++) {
+  for (let i = 1; i < 230; i++) {
     let time = randomDate(start, end, startHour, endHour);
     let rated = Math.floor(Math.random() * 5) + 1;
     cigs.push({

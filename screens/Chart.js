@@ -5,9 +5,9 @@ import { ContributionGraph } from 'react-native-chart-kit'
 const commitsData = [];
 
 const chartConfig = {
-  backgroundGradientFrom: 'rgba(249, 240, 175, 0.2)',
-  backgroundGradientTo: 'rgba(249, 240, 175, 0.2)',
-  color: (opacity = 1) => `rgba(77, 57, 44, ${opacity})`,
+  backgroundGradientFrom: 'rgba(110, 211, 207, 0.2)',
+  backgroundGradientTo: 'rgba(110, 211, 207, 0.2)',
+  color: (opacity = 1) => `rgba(28, 58, 58, ${opacity})`,
   strokeWidth: 2
 }
 
@@ -22,10 +22,10 @@ const Chart = (props) => {
     
   <ImageBackground style={styles.container} source={require('./images/backSmoke.jpg')}>
     <View style={styles.overlayContainer}>
-      <View style={{marginTop: "10%"}}>
-        <View style={{alignItems: "center", margin: 20}}>
+    <View style={{alignItems: "center", margin: 30}}>
           <Text style={{fontSize: 22}}>Cigarette Contributions</Text>
         </View>
+      <View style={{marginTop: "10%"}}>
         <ContributionGraph
           values={commitsData}
           endDate={new Date()}
@@ -48,7 +48,8 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   overlayContainer: {
-    backgroundColor: "rgba(249, 240, 175,0.4)",
+    backgroundColor: "rgba(110, 211, 207,0.4)",
+    height: "100%"
   }
 });
 export default Chart;
