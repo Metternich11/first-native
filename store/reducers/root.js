@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_CIGARETTE:
       const obj = {
-        time: new Date(),
+        time: new Date().toISOString(),
         latitude: 41.3825,
         longitude: 2.17694,
         message: action.message,

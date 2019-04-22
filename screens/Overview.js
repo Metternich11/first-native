@@ -19,7 +19,7 @@ const Overview = props => {
   let clock = '';
   let avgRating = 0;
   if (data.length > 1) {
-    const date = data[data.length-1].time.toString();
+    const date = data[data.length-1].time;
     year = date.slice(0,4);
     month = months[parseInt(date.slice(5,7))-1];
     day = date.slice(8,10)+'.';
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     height: "100%",
-    backgroundColor: "rgba(155,122,123,0.4)",
+    backgroundColor: "rgba(144, 104, 190,0.4)",
     alignItems: "center",
     justifyContent: "center"
   },
@@ -98,14 +98,14 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 10,
     width: "80%",
-    backgroundColor: "rgba(155,122,123,0.4)",
+    backgroundColor: "rgba(144, 104, 190,0.4)",
     borderRadius: 20,
     alignItems: "center"
   },
   textContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "rgba(155,122,123,0.4)",
+    backgroundColor: "rgba(144, 104, 190,0.4)",
     borderRadius: 20,
     padding: 15,
     margin: 10,

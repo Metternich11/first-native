@@ -53,7 +53,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
     navigationOptions: {
       tabBarIcon: () => (<Ionicons name="ios-home" size={30}/>),
         tabBarLabel: 'Overview',
-        tabBarColor: '#9B7A7B',
+        tabBarColor: '#9068be',
     }
   },
   InputCigarette: {
@@ -61,7 +61,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
     navigationOptions: {
       tabBarIcon: () => (<MaterialIcons name="smoking-rooms" size={30}/>),
         tabBarLabel: 'Smoke!',
-        tabBarColor: '#F0A979',
+        tabBarColor: '#e1e8f0',
     }
   },
   Chart: { 
@@ -69,7 +69,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
     navigationOptions: {
       tabBarIcon: () => (<AntDesign name="barchart" size={30}/>),
         tabBarLabel: 'Statistics',
-        tabBarColor: '#F9F0AF',
+        tabBarColor: '#6ed3cf',
     }
   }},
   {
@@ -77,7 +77,7 @@ const TabNavigator = createMaterialBottomTabNavigator({
     shifting: true,
     activeColor: 'black',
     inactiveColor: '#3e2465',
-    barStyle: { backgroundColor: '#694fad' },
+    barStyle: { backgroundColor: '#6ed3cf' },
 });
 
 const App = createAppContainer(TabNavigator);
