@@ -1,10 +1,11 @@
 import { ADD_CIGARETTE, SET_CIGARETTES } from './actionTypes';
 
 
-export const addCigarette = (message, rated) => {
+export const addCigarette = (title, description, rated) => {
   return {
     type: ADD_CIGARETTE,
-    message: message,
+    title: title,
+    description: description,
     rated: rated
   };
 };

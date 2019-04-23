@@ -4,19 +4,33 @@ import { ContributionGraph } from 'react-native-chart-kit'
 
 const commitsData = [];
 
-const chartConfig = {
-  backgroundGradientFrom: 'rgba(110, 211, 207, 0.2)',
-  backgroundGradientTo: 'rgba(110, 211, 207, 0.2)',
-  color: (opacity = 1) => `rgba(28, 58, 58, ${opacity})`,
-  strokeWidth: 2
-}
 
 const Chart = (props) => {
+  const color = props.data.colors.color3;
   props.data.cigarettes.forEach(el => {
     let time = el.time.slice(0,10)
     var index = commitsData.map(function(e) { return e.date; }).indexOf(time);
     if (index >= 0) commitsData[index].count++;
     else commitsData.push({date: time, count: 0});
+  });
+  
+  const chartConfig = {
+    backgroundGradientFrom: color + '10',
+    backgroundGradientTo: color + '10',
+    color: (opacity = 1) => `rgba(28, 58, 58, ${opacity})`,
+    strokeWidth: 2
+  }
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      width: "100%",
+      height: "100%",
+    },
+    overlayContainer: {
+      backgroundColor: color + '40',
+      height: "100%"
+    }
   });
   return (
     
@@ -41,15 +55,4 @@ const Chart = (props) => {
   )
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: "100%",
-    height: "100%",
-  },
-  overlayContainer: {
-    backgroundColor: "rgba(110, 211, 207,0.4)",
-    height: "100%"
-  }
-});
 export default Chart;
