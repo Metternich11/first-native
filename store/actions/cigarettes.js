@@ -1,4 +1,4 @@
-import { ADD_CIGARETTE, SET_CIGARETTES } from './actionTypes';
+import { ADD_CIGARETTE, SET_CIGARETTES, SET_COLORS } from './actionTypes';
 
 
 export const addCigarette = (title, description, rated) => {

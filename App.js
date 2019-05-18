@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-
 import { createAppContainer } from 'react-navigation';
 import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
 import { Ionicons, MaterialIcons, AntDesign } from '@expo/vector-icons';
 
-import { addCigarette } from './store/actions/index';
-import { connect, ReactReduxContext } from 'react-redux';
+import { addCigarette, setColors } from './store/actions/index';
+import { connect } from 'react-redux';
 
 import Overview from './screens/Overview';
 import Input from './screens/Input';
@@ -15,8 +14,16 @@ import Timeline from './screens/Timeline';
 const Chartscreen = (props) => {
   return ( <Chart data={props}/>)
 }
-const Homescreen = (props) => {
-  return ( <Overview data={props}/> )
+
+class Homescreen extends Component {
+  addColorHandler = (c1, c2, c3, c4, c5) => {
+    this.props.onSetColors(c1, c2, c3, c4, c5);
+  };
+  render () {
+    return (
+      <Overview addColorHandler={this.addColorHandler} data={this.props}/>
+    )
+  }
 }
 
 class InputCigarette extends Component {
@@ -37,13 +44,14 @@ const TimelineScreen = (props) => {
 const mapStateToProps = state => {
   return {
     cigarettes: state.cigarettes.cigarettes,
-    colors: state.colors
+    colors: state.colors.colors
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAddCigarette: (title, description, rated) => dispatch(addCigarette(title, description, rated))
+    onAddCigarette: (title, description, rated) => dispatch(addCigarette(title, description, rated)),
+    onSetColors: (c1, c2, c3, c4, c5) => dispatch(setColors(c1, c2, c3, c4, c5))
   };
 };
 
@@ -56,8 +64,13 @@ const TimelineWithProps = connect(mapStateToProps, mapDispatchToProps)(TimelineS
 
 
 class App2 extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {reload: true};
+  }
   render() {
-    const colors = this.props.store.getState().colors;
+    this.props.store.subscribe(()=>{this.setState({reload:false})});
+    let colors = this.props.store.getState().colors.colors;
     const TabNavigator = createMaterialBottomTabNavigator({
       home: { 
         screen: HomescreenWithProps,

@@ -1,6 +1,8 @@
 import React from "react";
-import { StyleSheet, View, Text, ImageBackground, Image } from "react-native";
+import { StyleSheet, View, Text, ImageBackground, Image, ScrollView } from "react-native";
 import { AirbnbRating } from 'react-native-ratings';
+
+import Menu from '../Menu';
 
 const months = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dez'];
 
@@ -43,7 +45,6 @@ const Overview = props => {
     },
     totalAmount: {
       flex: 1,
-      marginTop: 30,
       margin: 10,
       width: "80%",
       borderRadius: 20
@@ -75,10 +76,11 @@ const Overview = props => {
   return (
     <ImageBackground style={styles.container} source={require('./images/backSmoke.jpg')}>
       <View style={styles.overlayContainer}>
+      <Menu addColorHandler={props.addColorHandler}/>
         <View style={styles.totalAmount}>
           <View style={styles.textContainer}>
             <Image source={require('./images/cigarette.png')} style={{width: 70, height: 70}} />
-            <Text style={styles.textProps2}>Total:</Text><Text style={styles.textProps2}>{data.length}</Text>
+            <Text style={{fontSize: 22, marginTop: 25}}>Total:</Text><Text style={{fontSize: 22, marginTop: 25}}>{data.length}</Text>
           </View>
           <View style={styles.textContainer}>
             <Text style={styles.textProps}>Money smoked:</Text><Text style={styles.textProps}>{Math.round(data.length*0.28*100)/100} €</Text>
@@ -96,10 +98,11 @@ const Overview = props => {
             isDisabled={true}
             imageSize={50}
           />
-          <Text style={styles.textProps}>Average wellbeing</Text>
-          <Text style={{margin: 25, fontSize: 20}}>Last Message</Text>
-          <Text style={styles.textProps}>{data[data.length-1].title}</Text>
-          <Text style={styles.textProps}>{data[data.length-1].description}</Text>
+            <Text style={styles.textProps}>Average wellbeing</Text>
+            <Text style={{fontSize: 22, margin: 5, marginTop: 14}}>{data[data.length-1].title}</Text>
+            <ScrollView style={{margin: 5}}>
+              <Text style={styles.textProps}>{data[data.length-1].description}</Text>
+            </ScrollView>
         </View>
       </View>
     </ImageBackground>

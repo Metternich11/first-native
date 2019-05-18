@@ -2,11 +2,13 @@ import genRandomDate from '../../Ini';
 
 import { ADD_CIGARETTE, SET_CIGARETTES, SET_COLORS } from '../actions/actionTypes';
 const initialColor = {
-  color1: '#192E5B',
-  color2: '#1D65A6',
-  color3: '#72A2C0',
-  color4: '#00743F',
-  color5: '#F2A104'
+  colors: {
+    color1: '#192E5B',
+    color2: '#1D65A6',
+    color3: '#72A2C0',
+    color4: '#00743F',
+    color5: '#F2A104'
+  }
 }
 
 export const colorsReducer = (state = initialColor, action) => {

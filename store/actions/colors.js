@@ -1,8 +1,8 @@
-import {  COLORS } from './actionTypes';
+import {  SET_COLORS } from './actionTypes';
 
-export const setColor = (color1, color2, color3, color4, color5) => {
+export const setColors = (color1, color2, color3, color4, color5) => {
   return {
-    type: ADD_CIGARETTE,
+    type: SET_COLORS,
     color1: color1,
     color2: color2,
     color3: color3,

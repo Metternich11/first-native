@@ -11,11 +11,9 @@ const fetchAllItems = async () => {
   try {
     let x = await AsyncStorage.getItem('@cigaretteStorage:key');
     if (x) {
-      const data = JSON.parse(x);
-      const sortedArray = data.cigarettes.cigarettes.sort((a,b) => {
-        if (a.time < b.time) return -1;
-        if (a.time > b.time) return 1;
-        return 0;
+      const data = await JSON.parse(x);
+      const sortedArray = await data.cigarettes.cigarettes.sort((a,b) => {
+        return b.time - a.time;
       })
       store.dispatch({
         type: 'SET_CIGARETTES',
@@ -32,8 +30,9 @@ const storeState = async () => {
   AsyncStorage.setItem('@cigaretteStorage:key', JSON.stringify(store.getState()));
 }
 
+
 // AsyncStorage.clear();
-fetchAllItems();
+// fetchAllItems();
 
 class RRedux extends Component {
   render() {
