@@ -1,8 +1,9 @@
 import { createStore, combineReducers } from 'redux';
-import cigarettesReducer from './reducers/root'; 
+import { cigarettesReducer, colorsReducer }from './reducers/root'; 
 
 const rootReducer = combineReducers({
-  cigarettes: cigarettesReducer
+  cigarettes: cigarettesReducer,
+  colors: colorsReducer
 });
 
 const configureStore = () => {
